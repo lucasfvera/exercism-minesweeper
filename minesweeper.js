@@ -15,6 +15,7 @@ const MINE_CHARACTER = '*';
  */
 const checkRight = (board, selectedBox) => {
 	const row = board[selectedBox.y];
+	// Check if it's on the edge of the board
 	if (selectedBox.x === row.length - 1) return false;
 
 	const inspectedBox = row[selectedBox.x + 1];
@@ -32,6 +33,7 @@ const checkRight = (board, selectedBox) => {
  */
 const checkLeft = (board, selectedBox) => {
 	const row = board[selectedBox.y];
+	// Check if it's on the edge of the board
 	if (selectedBox.x === 0) return false;
 
 	const inspectedBox = row[selectedBox.x - 1];
@@ -48,6 +50,7 @@ const checkLeft = (board, selectedBox) => {
  * @returns {boolean} `true` if there is a mine, `false` otherwise
  */
 const checkDown = (board, selectedBox) => {
+	// Check if it's on the edge of the board
 	if (selectedBox.y === board.length - 1) return false;
 	const row = board[selectedBox.y + 1];
 
@@ -65,6 +68,7 @@ const checkDown = (board, selectedBox) => {
  * @returns {boolean} `true` if there is a mine, `false` otherwise
  */
 const checkUp = (board, selectedBox) => {
+	// Check if it's on the edge of the board
 	if (selectedBox.y === 0) return false;
 	const row = board[selectedBox.y - 1];
 
@@ -84,6 +88,7 @@ const checkUp = (board, selectedBox) => {
 const checkRightUp = (board, selectedBox) => {
 	const row = board[selectedBox.y];
 
+	// Check if it's on the edge of the board
 	if (selectedBox.y === 0) return false;
 	if (selectedBox.x === row.length - 1) return false;
 
@@ -102,8 +107,7 @@ const checkRightUp = (board, selectedBox) => {
  * @returns {boolean} `true` if there is a mine, `false` otherwise
  */
 const checkLeftUp = (board, selectedBox) => {
-	const row = board[selectedBox.y];
-
+	// Check if it's on the edge of the board
 	if (selectedBox.y === 0) return false;
 	if (selectedBox.x === 0) return false;
 
@@ -142,8 +146,7 @@ const checkRightDown = (board, selectedBox) => {
  * @returns {boolean} `true` if there is a mine, `false` otherwise
  */
 const checkLeftDown = (board, selectedBox) => {
-	const row = board[selectedBox.y];
-
+	// Check if it's on the edge of the board
 	if (selectedBox.y === board.length - 1) return false;
 	if (selectedBox.x === 0) return false;
 
@@ -166,7 +169,7 @@ const checkers = {
 
 /**
  *
- * @param {[string]} board
+ * @param {string[]} board
  * @returns
  */
 export const annotate = (board) => {
